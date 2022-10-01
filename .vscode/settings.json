@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/f14fd489-703e-4107-a9d7-5d2ebd5c1f67/AppServices/subscriptions/f14fd489-703e-4107-a9d7-5d2ebd5c1f67/resourceGroups/Safricloud-Web-Apps/providers/Microsoft.Web/sites/safricloud-sandbox",
-    "appService.deploySubpath": "."
-}
