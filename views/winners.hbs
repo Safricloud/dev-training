@@ -1,5 +1,7 @@
-<ul>
-    {{#each winners}}
-        <li>{{this}}</li>
-    {{/each}}
-</ul>
+<div id="winners-container">
+    <ul>
+        {{#each winners}}
+            <li><span class="ip">{{this.ip}}</span>@<span class="time">{{this.time}}</span></li>
+        {{/each}}
+    </ul>
+</div>

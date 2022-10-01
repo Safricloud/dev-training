@@ -1,6 +1,7 @@
 html,
 body {
     background-color: black;
+    color: white;
 }
 
 .view {
@@ -69,6 +70,21 @@ input {
     bottom: 0;
     height: 4vw;
     flex-wrap: wrap;
+}
+
+#winners-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#winners-container .ip {
+    color: ghostwhite;
+}
+
+#winners-container .time {
+    color: lightblue;
 }
 
 @media (orientation: landscape) {

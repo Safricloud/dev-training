@@ -14,6 +14,7 @@ router.get('/winners', function (req, res, next) {
 });
 
 router.post('/api', (req, res) => {
+    const ip = checkHeaders(req);
     totalCount++;
     const { input } = req.body;
     console.log(input);
@@ -22,10 +23,11 @@ router.post('/api', (req, res) => {
         if (inputHash === key) {
             solvedCount++;
             res.json({ output: 'We have a WINNER!!!!!!', solvedCount, totalCount, complete: true });
-            winners.push(req.ip);
+            const winner = { ip, time: new Date() };
+            winners.push(winner);
         } else {
             const rounds = Math.ceil(20 / input.length);
-            console.log(decrypt(input, rounds));
+            //console.log(decrypt(input, rounds));
             const output = encrypt(input, rounds);
             res.json({ output, solvedCount, totalCount });
         }
@@ -33,5 +35,11 @@ router.post('/api', (req, res) => {
         res.json({ output: '', solvedCount, totalCount });
     }
 });
+
+function checkHeaders(req) {
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    console.log(ip);
+    return ip;
+}
 
 module.exports = router;
