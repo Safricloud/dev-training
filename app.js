@@ -12,7 +12,7 @@ const basicAuthorisor = require('./local_modules/route-protection');
 
 const adminRouter = require('./routes/admin')({sessionStore});
 
-const indexRouter = require('./routes/index')({sessionStore});
+const indexRouter = require('./routes/index');
 
 const app = express();
 
