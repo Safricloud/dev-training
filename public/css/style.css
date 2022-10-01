@@ -79,6 +79,10 @@ input {
     align-items: center;
 }
 
+#winners-container span {
+    margin-inline: 10px;
+}
+
 #winners-container .ip {
     color: ghostwhite;
 }

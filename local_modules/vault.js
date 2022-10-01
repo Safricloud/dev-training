@@ -5,5 +5,5 @@ module.exports = {
     solvedCount: 0,
     totalCount: 0,
     range: {low: 32, high: 126},
-    winners: []
+    winners: [],
 };

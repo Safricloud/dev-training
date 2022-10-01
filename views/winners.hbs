@@ -1,7 +1,7 @@
 <div id="winners-container">
     <ul>
         {{#each winners}}
-            <li><span class="ip">{{this.ip}}</span>@<span class="time">{{this.time}}</span></li>
+            <li><span class="id">ID: {{this.id}}</span><span class="ip">IPs: {{this.user.ips}}</span><span class="attempts">Attempts: {{this.user.attemptsBeforeSolved}}</span><span class="time">Time Stamp: {{this.user.solvedTime}}</span></li>
         {{/each}}
     </ul>
 </div>

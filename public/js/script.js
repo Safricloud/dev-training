@@ -105,6 +105,7 @@ function fetchCipher(input) {
     const data = { input };
 
     return fetch('/api', {
+        credentials: "same-origin",
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
