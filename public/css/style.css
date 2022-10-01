@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     background-color: black;
 }
 
@@ -12,15 +13,20 @@ html, body {
 }
 
 .container {
-    margin: 50px;
+    margin: 1vw;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
     width: 100%;
-    font-size: 24px;
+    font-size: 3vw;
     text-align: center;
     color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 input {
-    width: 80%;
+    width: 60%;
     height: 100%;
     border: none;
     background-color: black;
@@ -29,8 +35,20 @@ input {
     color: white;
 }
 
-.riddle-container {
-    font-size: 16px;
+#riddle-container {
+    justify-content: center;
+}
+
+#riddle-cipher {
+    border: solid 3px white;
+    border-radius: 50%;
+    width: 50vw;
+    height: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-size: 6vw;
 }
 
 #overlay {
@@ -44,4 +62,24 @@ input {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 4vw;
+    flex-wrap: wrap;
+}
+
+@media (orientation: landscape) {
+    .view {
+        justify-content: flex-start;
+    }
+    #riddle-cipher {
+        width: 25vw;
+        height: 25vw;
+    }
+    .container {
+        margin: 1vw;
+    }
 }

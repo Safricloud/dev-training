@@ -1,5 +1,10 @@
 <div class='view'>
-    <div class='input-container container'>
+    <div id="riddle-container" class='container'>
+        <div id='riddle-cipher'>
+            s+@~e|
+        </div>
+    </div>
+    <div id="input-container" class='container'>
         <input type='text' id='input' placeholder='Type something and see the result...' />
     </div>
     <div class='output-container container'>
@@ -7,16 +12,8 @@
             ...
         </div>
     </div>
-    <div class='riddle-container container'>
-        <div id='riddle-question'>
-            If you think you can solve the ceaser cipher, enter the solution to this into the text box above:
-        </div>
-        <div id='riddle-cipher'>
-            s+@~(|
-        </div>
-    </div>
     <div id="footer" class="container">
-        Count: Solved {{solvedCount}} times out of {{totalCount}} attempts.
+        Solved <span id="solved-count">{{solvedCount}}</span> times out of <span id="total-count">{{totalCount}}</span> attempts
     </div>
     <div id="overlay"></div>
 </div>
