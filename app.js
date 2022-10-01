@@ -7,6 +7,10 @@ const MemoryStore = require('memorystore')(session);
 const sessionStore = new MemoryStore({
     max: 1000000,
 });
+const basicAuth = require('express-basic-auth');
+const basicAuthorisor = require('./local_modules/route-protection');
+
+const adminRouter = require('./routes/admin')({sessionStore});
 
 const indexRouter = require('./routes/index')({sessionStore});
 
@@ -36,6 +40,7 @@ app.use(
     })
 );
 
+app.use('/admin', basicAuth({ authorizer: basicAuthorisor }), adminRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

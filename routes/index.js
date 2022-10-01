@@ -36,20 +36,25 @@ function wrapper(config) {
         res.render('winners', { title: 'Winners', winners });
     });
 
-    router.get('/req', function (req, res, next) {
-        res.json({ session: JSON.stringify(req.session) });
+    // router.get('/req', function (req, res, next) {
+    //     res.json({ session: JSON.stringify(req.session) });
+    // });
+
+    router.post('/hash', function (req, res, next) {
+        console.log(req.body);
+        res.json({ "hash": generateHash(req.body.input) });
     });
 
-    router.get('/sessions', function (req, res, next) {
-        sessionStore.all((err, sessions) => {
-            if (err) {
-                console.log(err);
-                res.status(500).send('Error getting sessions');
-            } else {
-                res.json({ sessions });
-            }
-        });
-    });
+    // router.get('/sessions', function (req, res, next) {
+    //     sessionStore.all((err, sessions) => {
+    //         if (err) {
+    //             console.log(err);
+    //             res.status(500).send('Error getting sessions');
+    //         } else {
+    //             res.json({ sessions });
+    //         }
+    //     });
+    // });
 
     router.post('/api', (req, res) => {
         totalCount++;
