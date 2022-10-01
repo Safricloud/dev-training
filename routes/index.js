@@ -1,11 +1,16 @@
+"use strict";
+
 const express = require('express');
 const router = express.Router();
 const { generateHash, encrypt, decrypt } = require('../local_modules/crypto');
-let { solvedCount, totalCount, key } = require('../local_modules/vault');
+let { solvedCount, totalCount, key, winners } = require('../local_modules/vault');
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('index', { title: 'Riddle', solvedCount, totalCount });
+});
+
+router.get('/winners', function (req, res, next) {
+    res.render('winners', { title: 'Winners', winners });
 });
 
 router.post('/api', (req, res) => {
@@ -17,6 +22,7 @@ router.post('/api', (req, res) => {
         if (inputHash === key) {
             solvedCount++;
             res.json({ output: 'We have a WINNER!!!!!!', solvedCount, totalCount, complete: true });
+            winners.push(req.ip);
         } else {
             const rounds = Math.ceil(20 / input.length);
             console.log(decrypt(input, rounds));

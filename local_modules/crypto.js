@@ -1,4 +1,5 @@
 "use strict";
+const { range: { low, high } } = require('./vault');
 
 let crypto;
 try {
@@ -38,7 +39,7 @@ function encodeInput(input) {
         // console.log('Before:')
         // console.log(`Character: ${input[i - 1]} - Code: ${charCode}`);
         charCode += i;
-        charCode = range(32, 126, charCode);
+        charCode = range(low, high, charCode);
         // console.log(`i = ${i}`);
         // console.log('After:')
         // console.log(`Character: ${String.fromCharCode(charCode)} - Code: ${charCode}`);
@@ -53,7 +54,7 @@ function decodeInput(input) {
     for (let i = 0; i < input.length; i++) {
         let charCode = input.charCodeAt(i);
         charCode -= input.length - i;
-        charCode = range(32, 126, charCode);
+        charCode = range(low, high, charCode);
         charCodes.push(charCode);
     }
     const response = String.fromCharCode(...charCodes)
@@ -65,7 +66,7 @@ function decodeInput(input) {
 
 function range(start, end, value) {
     if (value > end) {
-        value = start + (value - end + 1);
+        value = start + (value - end - 1);
     } else if (value < start) {
         value = end - (start - 1 - value);
     }
