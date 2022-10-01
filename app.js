@@ -3,8 +3,12 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const session = require('express-session');
+const MemoryStore = require('memorystore')(session);
+const sessionStore = new MemoryStore({
+    max: 1000000,
+});
 
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index')({sessionStore});
 
 const app = express();
 
@@ -28,6 +32,7 @@ app.use(
             //secure: true,
             expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
         },
+        store: sessionStore,
     })
 );
 
