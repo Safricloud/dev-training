@@ -1,0 +1,12 @@
+<div id='leaderboard-container'>
+    <ul>
+        {{#each leaderboard}}
+            <li>
+                <span class='position'>Position: {{this.pos}}</span>
+                <span class='country'>Country: {{this.country}}</span>
+                <span class='attempts'>Attempts: {{this.attempts}}</span>
+                <span class='time'>Time Taken: {{this.solvedTime}}</span>
+            </li>
+        {{/each}}
+    </ul>
+</div>

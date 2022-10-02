@@ -97,7 +97,7 @@ function inputListener(input) {
             totalCount.textContent = data.totalCount;
         })
         .catch((error) => {
-            console.error('Error:', error);
+            console.log(error);
         });
 }
 
